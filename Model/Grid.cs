@@ -12,12 +12,25 @@ namespace Vsite.Oom.Battleship.Model
         {
             Rows = rows;
             Columns = columns;
+            squares = new Square[Rows,Columns];
+            for(int r = 0; r< Rows; ++r)
+            {
+                for (int c=0; c<Columns; ++c)
+                {
+                    squares[r, c] = new Square(r, c);
+                }
+            }
         }
      public IEnumerable<IEnumerable<Square>> GetAvailablePlacments(int length)
         {
             throw new NotImplementedException();
         }
+        public void EliminateSquares(IEnumerable<Square> squares)
+        {
+            throw new NotImplementedException();
+        }
         public readonly int Rows;
         public readonly int Columns;
+        private Square[,] squares;
     }
 }
