@@ -22,7 +22,7 @@ namespace Vsite.Oom.Battleship.Model.UnitTests
         {
             Grid g = new Grid(5, 1);
             var result = g.GetAvailablePlacments(3);
-            Assert.AreEqual(2, result.Count());
+            Assert.AreEqual(3, result.Count());
 
             foreach(var sequance in result)
                 Assert.AreEqual(3, sequance.Count());
