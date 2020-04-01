@@ -24,7 +24,21 @@ namespace Vsite.Oom.Battleship.Model
         }
      public IEnumerable<Placment> GetAvailablePlacments(int length)
         {
-            return GetAvailableHorizontalPlacment(length).Concat(GetAvailableVerticalPlacment(length));
+            if(length!=1)
+                return GetAvailableHorizontalPlacment(length).Concat(GetAvailableVerticalPlacment(length));
+            
+                List<List<Square>> result = new List<List<Square>>();
+                for (int r = 0; r < Rows; ++r)
+                {                    
+                    for (int c = 0; c < Columns; ++c)
+                    {
+                        if (squares[r, c] != null)
+                            result.Add(new List<Square> { squares[r, c] });
+                    }
+                }
+                return result;
+            
+            
         }
 
         public void EliminateSquares(Placment ToEliminate)
