@@ -147,6 +147,34 @@ namespace Vsite.Oom.Battleship.Model
            
         }
 
+        public IEnumerable<IEnumerable<Square>> GetSquaresInline(IEnumerable<Square> squaresHit)
+        {
+            List<Placment> result = new List<Placment>();
+            if (squaresHit.First().Row == squaresHit.Last().Row)
+            {
+               var l = GetSquaresNextTo(squaresHit.First(),Direction.Left);
+                if (l.Count() > 0)
+                    result.Add(l);
+                l= GetSquaresNextTo(squaresHit.First(), Direction.Right);
+                if (l.Count() > 0)
+                    result.Add(l);
+            }
+            else if(squaresHit.First().Column == squaresHit.Last().Column)
+            {
+                var l = GetSquaresNextTo(squaresHit.First(), Direction.Up);
+                if (l.Count() > 0)
+                    result.Add(l);
+                l = GetSquaresNextTo(squaresHit.First(), Direction.Down);
+                if (l.Count() > 0)
+                    result.Add(l);
+            }
+            else
+            {
+                Debug.Assert(false);
+            }
+            return result;
+        }
+
         private bool IsAvailable(int row,int column)
         {
             return squares[row, column] != null && squares[row, column].SquareState == SquareState.None;
