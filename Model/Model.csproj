@@ -44,9 +44,12 @@
     <Compile Include="Fleet.cs" />
     <Compile Include="Grid.cs" />
     <Compile Include="Gunner.cs" />
+    <Compile Include="InlineShooting.cs" />
     <Compile Include="ISquareTerminator.cs" />
+    <Compile Include="ITargetSelect.cs" />
     <Compile Include="LimitedQueue.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RandomShooting.cs" />
     <Compile Include="RulesSingleton.cs" />
     <Compile Include="Ship.cs" />
     <Compile Include="Shipwright.cs" />
@@ -54,6 +57,7 @@
     <Compile Include="Square.cs" />
     <Compile Include="SquareTerminator.cs" />
     <Compile Include="SquareTerminatorFactory.cs" />
+    <Compile Include="SurroundShooting.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
